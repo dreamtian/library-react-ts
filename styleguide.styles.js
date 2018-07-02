@@ -3,7 +3,7 @@ const rhythm = (value = 1, unit = 'rem', basis = 1.5) => (
   Array.isArray(value)
     ? value.map(v => `${basis * v}${unit}`).join(' ')
     : `${basis * value}${unit}`
-)
+);
 
 const colors = {
   light: '#fff',
@@ -15,7 +15,7 @@ const colors = {
   secondary: '#ad29b6',
   tertiary: '#203a44',
   danger: '#d9534f'
-}
+};
 
 const theme = {
   color: {
@@ -49,7 +49,7 @@ const theme = {
   },
   maxWidth: 780,
   sidebarWidth: 240
-}
+};
 
 const styles = {
   ComponentsList: {
@@ -190,9 +190,9 @@ const styles = {
       }
     }
   }
-}
+};
 
 module.exports = {
   styles: styles,
   theme: theme
-}
+};

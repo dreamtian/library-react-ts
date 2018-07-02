@@ -1,8 +1,8 @@
-const path = require('path')
-const camelCase = require('lodash/camelCase')
-const upperFirst = require('lodash/upperFirst')
-const { styles, theme } = require('./styleguide.styles')
-const { version } = require('./package.json')
+const path = require('path');
+const camelCase = require('lodash/camelCase');
+const upperFirst = require('lodash/upperFirst');
+const { styles, theme } = require('./styleguide.styles');
+const { version } = require('./package.json');
 
 module.exports = {
   title: `tuia ${version}`,
@@ -13,11 +13,11 @@ module.exports = {
   styles,
   theme,
   getComponentPathLine: (componentPath) => {
-    const dirname = path.dirname(componentPath, '.js')
-    const name = dirname.split('/').slice(-1)[0]
-    const componentName = upperFirst(camelCase(name))
+    const dirname = path.dirname(componentPath, '.js');
+    const name = dirname.split('/').slice(-1)[0];
+    const componentName = upperFirst(camelCase(name));
 
-    return 'import ' + componentName + ' from \'tuia/' + name + '\''
+    return 'import ' + componentName + ' from \'tuia/' + name + '\'';
   },
   styleguideComponents: {
     Logo: path.join(__dirname, 'lib/components/logo')
@@ -33,7 +33,7 @@ module.exports = {
         // add the component like this
         // it can read the md file and generate the corresponding document on the website
         // TODO : Layout, Color, Font, Button, Icon
-        path.resolve(__dirname, 'source/components/buttons', 'index.jsx')
+        path.resolve(__dirname, 'source/components/rows', 'index.tsx')
       ])
     },
     {
@@ -66,9 +66,9 @@ module.exports = {
     module: {
       loaders: [
         {
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
+          test: /\.tsx?$/,
+          loader: 'ts-loader',
+          exclude: /node_modules/
         },
         {
           test: /\.css$/,
@@ -77,4 +77,4 @@ module.exports = {
       ]
     }
   }
-}
+};
